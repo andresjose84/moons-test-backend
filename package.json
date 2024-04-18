@@ -1,0 +1,24 @@
+{
+  "name": "moons-test-backend",
+  "version": "1.0.0",
+  "description": "Esta es una prueba tecnica para moons.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js --watch",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "moons",
+    "api",
+    "smilecenter"
+  ],
+  "author": "AJSM",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "parse": "^5.0.0"
+  }
+}
