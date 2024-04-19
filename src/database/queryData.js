@@ -2,7 +2,7 @@ const Parse = require( 'parse/node' );
 
 const queryData = async params => {
 
-    const data = [];
+    const data = {};
 
     const {
         center_type,
@@ -10,8 +10,6 @@ const queryData = async params => {
         services
     } = params;
 
-    //To initialize Parse SDK in your JavaScript project, 
-    //add the code below in your index.html file, inside <script> tag.
 
     Parse.initialize( process.env.APP_ID, process.env.JS_KEY );
     Parse.serverURL = process.env.URL;
@@ -46,10 +44,12 @@ const queryData = async params => {
             if ( services )
                 res.Appointment_Type_Id = !res.Services[ services ].AppointmentTypeId ? res.Appointment_Type_Id : res.Services[ services ].AppointmentTypeId;
 
-            data.push( res );
-        }
+            if ( !data[ res.Zone ] )
+                data[ res.Zone ] = [];
 
-        console.log( 'datos encontrados', data.length );
+            data[ res.Zone ].push( res )
+
+        }
 
         return data;
     } catch ( error ) {
