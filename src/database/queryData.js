@@ -37,13 +37,30 @@ const queryData = async params => {
         for ( const object of results ) {
             const zone = object.get( 'Zone' );
             if ( object.get( 'Zone' ) ) {
+
+                let direccion = '';
+                if ( object.get( 'Street' ) )
+                    direccion += object.get( 'Street' ) + ' ';
+
+                if ( object.get( 'Number' ) )
+                    direccion += object.get( 'Number' ) + ', ';
+
+                if ( object.get( 'Apt' ) )
+                    direccion += object.get( 'Apt' ) + ', ';
+
+                if ( object.get( 'City' ) )
+                    direccion += object.get( 'City' ) + ', ';
+
+                if ( object.get( 'Country' ) )
+                    direccion += object.get( 'Country' );
+
                 const res = {
                     Center_Name: object.get( 'Center_Name' ),
                     Center_Type: object.get( 'Center_Type' ),
                     Zone: zone,
                     Timetable: object.get( 'Timetable' ),
                     Promo: object.get( 'promo' ),
-                    Direccion: `${ object.get( 'Street' ) } ${ object.get( 'Number' ) }, ${ object.get( 'Apt' ) }, ${ object.get( 'City' ) }, ${ object.get( 'Country' ) }`,
+                    Direccion: direccion,
                     Services: object.get( 'Services' ),
                     Calendar_Id: object.get( 'Calendar_Id' ),
                     Appointment_Type_Id: object.get( 'Appointment_Type_Id' )
