@@ -45,7 +45,7 @@ Corre el servidor de desarrollo:
 npm start
 ```
 
-Construido con
+Construido con:
 
     Express - El framework web usado
     Node.js - Entorno de ejecución para JavaScript

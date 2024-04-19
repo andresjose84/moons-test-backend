@@ -43,7 +43,7 @@ const queryData = async params => {
                     Zone: zone,
                     Timetable: object.get( 'Timetable' ),
                     Promo: object.get( 'promo' ),
-                    Direccion: `${ object.get( 'Street' ) } ${ object.get( 'Number' ) }, ${ object.get( 'Neighborhood' ) }`,
+                    Direccion: `${ object.get( 'Street' ) } ${ object.get( 'Number' ) }, ${ object.get( 'Apt' ) }, ${ object.get( 'City' ) }, ${ object.get( 'Country' ) }`,
                     Services: object.get( 'Services' ),
                     Calendar_Id: object.get( 'Calendar_Id' ),
                     Appointment_Type_Id: object.get( 'Appointment_Type_Id' )
