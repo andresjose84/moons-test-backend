@@ -31,7 +31,7 @@ npm install
 
 Configura las variables de entorno:
 ```
-cp .env.example .env
+cp .env.template .env
 ```
 
 Se debe tener una cuenta en Back4app 
