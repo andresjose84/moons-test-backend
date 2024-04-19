@@ -5,7 +5,7 @@ const initController = require( '../controllers/initDataController' );
 
 const router = Router();
 
-router.get( '/', queryCollections );
-router.get( '/init', initController );
+router.get( '/smilecenters', queryCollections );
+router.get( '/smilecenters/init', initController );
 
 module.exports = router;
