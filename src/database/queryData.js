@@ -25,6 +25,8 @@ const queryData = async params => {
     if ( services )
         query.exists( `Services.${ services }` );
 
+    query.ascending('Zone');
+
     try {
 
         const results = await query.find();
