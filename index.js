@@ -25,4 +25,20 @@ app.get( '*', ( req, res ) => {
     res.sendFile( __dirname + '/src/public/index.html' );
 } );
 
+app.post( '*', ( req, res ) => {
+    res.status( 403 ).send( '403 Forbidden' );
+} );
+app.delete( '*', ( req, res ) => {
+    res.status( 403 ).send( '403 Forbidden' );
+} );
+app.patch( '*', ( req, res ) => {
+    res.status( 403 ).send( '403 Forbidden' );
+} );
+app.options( '*', ( req, res ) => {
+    res.status( 403 ).send( '403 Forbidden' );
+} );
+app.put( '*', ( req, res ) => {
+    res.status( 403 ).send( '403 Forbidden' );
+} );
+
 app.listen( port, () => console.log( `App listening on port ${ port }!` ) );
