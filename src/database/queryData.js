@@ -2,7 +2,8 @@ const Parse = require( 'parse/node' );
 
 const queryData = async params => {
 
-    const data = {};
+    const data = [];
+    const dataMap = new Map();
 
     const {
         center_type,
@@ -25,7 +26,7 @@ const queryData = async params => {
     if ( services )
         query.exists( `Services.${ services }` );
 
-    query.ascending('Zone');
+    query.ascending( 'Zone' );
 
     try {
 
@@ -85,14 +86,29 @@ const queryData = async params => {
                 if ( services )
                     res.Appointment_Type_Id = !res.Services[ services ].AppointmentTypeId ? res.Appointment_Type_Id : res.Services[ services ].AppointmentTypeId;
 
-                if ( !data[ res.Zone ] )
-                    data[ res.Zone ] = [];
 
-                data[ res.Zone ].push( res )
+
+                if ( !dataMap.has( res.Zone ) ) {
+                    dataMap.set( res.Zone, {
+                        zone: res.Zone,
+                        centers: []
+                    } );
+                    dataMap.get( res.Zone ).centers.push( res )
+                } else {
+                    dataMap.get( res.Zone ).centers.push( res )
+                }
+
+
+
+
             }
+        }
 
-
-
+        console.log( 'Size', dataMap.size );
+        if ( dataMap.size !== 0 ) {
+            dataMap.forEach( ( value ) => {
+                data.push( value );
+            } );
         }
 
         return data;
